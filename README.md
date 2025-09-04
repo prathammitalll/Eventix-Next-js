@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Eventix Frontend - Next.js Migration
 
-## Getting Started
+This project has been migrated from React (Vite) to Next.js with the following changes:
 
-First, run the development server:
+## Migration Summary
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### ✅ Completed
+- **Dependencies**: All React dependencies have been migrated to Next.js compatible versions
+- **File Structure**: Components, contexts, hooks, data, and utils have been copied
+- **Routing**: React Router has been replaced with Next.js App Router
+- **Styling**: Tailwind CSS configuration has been preserved
+- **Assets**: All public assets (images, videos, logos) have been copied
+- **Global Styles**: Custom CSS and animations have been preserved
+
+### 📁 File Structure
+```
+my-app/
+├── app/
+│   ├── components/          # All React components
+│   ├── contexts/           # Auth, Loading, SmoothScroll contexts
+│   ├── hooks/              # Custom hooks
+│   ├── data/               # Static data (events)
+│   ├── pages/              # Original page components
+│   ├── [routes]/           # Next.js route pages
+│   ├── globals.css         # Global styles
+│   ├── layout.tsx          # Root layout with providers
+│   └── page.tsx            # Home page
+├── public/                 # Static assets
+└── package.json           # Updated dependencies
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🔄 Key Changes Made
+1. **Navigation**: Replaced `useNavigate` and `useLocation` with Next.js `useRouter` and `usePathname`
+2. **Routing**: Converted React Router routes to Next.js App Router structure
+3. **Providers**: Integrated all context providers into the root layout
+4. **Components**: Updated components to use Next.js navigation patterns
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🚀 Running the Application
+```bash
+cd my-app
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The application should now be running on `http://localhost:3000`
 
-## Learn More
+### 📝 Notes
+- All original functionality has been preserved
+- Custom cursor, animations, and styling remain intact
+- Authentication flow and modals work as before
+- Event management and club features are fully functional
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🔧 Next Steps (if needed)
+- Test all routes and functionality
+- Optimize images using Next.js Image component
+- Add TypeScript types where needed
+- Implement server-side rendering for better SEO
