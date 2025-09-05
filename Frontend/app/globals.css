@@ -1,0 +1,123 @@
+@import "tailwindcss";
+/* @import url("https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap"); */
+
+/* Base styles for smooth scrolling */
+html {
+  scroll-behavior: auto; /* Disable native smooth scroll to let Lenis handle it */
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.inner-loader {
+  animation: loader 2s ease-in 1;
+}
+
+.Heading {
+  font-family: "Mea Culpa", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Custom cursor styles */
+* {
+  cursor: none !important; /* Hide the default cursor */
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle, #f2f862 0%, #f2f862 60%, rgba(242, 248, 98, 0.3) 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2147483647; /* Maximum z-index to ensure it's above everything */
+  mix-blend-mode: normal;
+  box-shadow: 
+    0 0 15px rgba(242, 248, 98, 0.8),
+    0 0 30px rgba(242, 248, 98, 0.4),
+    inset 0 0 6px rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.cursor-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f2f862 0%, #f2f862 70%, rgba(242, 248, 98, 0.4) 100%);
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* 360 touch effect - outer ring */
+.custom-cursor::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 1.5px solid rgba(242, 248, 98, 0.3);
+  border-radius: 50%;
+  animation: pulse360 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.custom-cursor.hover::before {
+  border-color: rgba(242, 248, 98, 0.6);
+  animation: pulse360 1s ease-in-out infinite;
+}
+
+@keyframes pulse360 {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+
+/* Show default cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+  
+  .custom-cursor {
+    display: none;
+  }
+}
+
+@keyframes loader {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
