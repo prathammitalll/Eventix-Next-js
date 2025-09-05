@@ -8,7 +8,6 @@ import About from "../components/Home/About";
 import PastEvents from "../components/Home/PastEvents";
 import CTA from "../components/Home/CTA";
 import Footer from "../components/Home/Footer";
-import AOS from "aos";
 import "aos/dist/aos.css";
 
 const HomePage: React.FC = () => {

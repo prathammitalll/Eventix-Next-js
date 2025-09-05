@@ -157,7 +157,7 @@ const Privacy: React.FC = () => {
             </h3>
             <p className="text-gray-300 mb-6">
               If you have questions about this privacy policy or how we handle
-              your data, please don't hesitate to contact us.
+              your data, please don&apos;t hesitate to contact us.
             </p>
             <a
               href="/contact"

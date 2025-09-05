@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 interface CardsProps {
@@ -26,11 +27,15 @@ const Cards: React.FC<CardsProps> = ({
         >
             {/* Event image with overlay gradient */}
             <div className="h-56 overflow-hidden relative">
-                <img 
-                    src={imageUrl || "/logo.png"} 
-                    alt={hackName} 
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                />
+                <div className="relative w-full h-full">
+                    <Image 
+                        src={imageUrl || "/logo.png"} 
+                        alt={hackName} 
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 hover:scale-105"
+                    />
+                </div>
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black via-black/50 to-transparent opacity-70"></div>
                 
                 {/* Status badge with pastel accent colors */}

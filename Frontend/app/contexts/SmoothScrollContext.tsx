@@ -2,8 +2,14 @@
 import React, { createContext, ReactNode } from "react";
 import { useSmoothScroll } from "../hooks/useSmoothScroll";
 
+interface ScrollOptions {
+  offset?: number;
+  duration?: number;
+  easing?: (t: number) => number;
+}
+
 interface SmoothScrollContextType {
-  scrollTo: (target: any, options?: {}) => void;
+  scrollTo: (target: HTMLElement | string | number, options?: ScrollOptions) => void;
   stop: () => void;
   start: () => void;
 }

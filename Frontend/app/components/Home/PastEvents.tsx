@@ -1,5 +1,6 @@
 "use client"
 import React, { useRef } from "react";
+import Image from "next/image";
 
 interface Event {
   id: number;
@@ -245,11 +246,15 @@ const PastEvents: React.FC = () => {
                 >
                   <div className="relative group cursor-pointer">
                     <div className="relative overflow-hidden rounded-xl">
-                      <img
-                        src={event.image}
-                        alt={event.title}
-                        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
+                      <div className="relative w-full h-64">
+                        <Image
+                          src={event.image}
+                          alt={event.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                      </div>
                       <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all duration-300"></div>
 
                       {/* Overlay Content - Clean White Design */}

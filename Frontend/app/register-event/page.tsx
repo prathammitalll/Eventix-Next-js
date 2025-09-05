@@ -1,5 +1,12 @@
-import RegisterEvent from "../pages/RegisterEvent";
+"use client"
+
+import { Suspense } from "react";
+import RegisterEvent from "@/app/pages/RegisterEvent";
 
 export default function RegisterEventPage() {
-  return <RegisterEvent />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <RegisterEvent />
+    </Suspense>
+  );
 }

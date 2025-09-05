@@ -114,7 +114,8 @@ const Navbar: React.FC = () => {
       const found = eventsData.find((ev) =>
         ev.title.toLowerCase().includes(searchQuery.trim().toLowerCase())
       );
-      router.push("/events");
+      // If found a specific event, go to its details page, otherwise go to events page
+      router.push(found ? `/events/${found.id}` : "/events");
       setSearchQuery(""); // Clear search bar after search
     }
   };

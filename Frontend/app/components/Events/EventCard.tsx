@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
@@ -60,9 +61,11 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
     >
       {/* Event Image */}
       <div className="relative h-40 overflow-hidden">
-        <img
+        <Image
           src={event.image}
           alt={event.title}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
 

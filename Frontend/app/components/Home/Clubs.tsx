@@ -1,5 +1,6 @@
 "use client"
 import React, { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { useRouter } from "next/navigation";
 
@@ -118,9 +119,11 @@ const ClubCard: React.FC<ClubCardProps> = ({ club, index }) => {
           <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
             <div className="flex items-center space-x-4 mb-3 md:mb-0">
               <div className="w-16 h-16 rounded-xl bg-gray-800 border-2 border-gray-600 flex items-center justify-center overflow-hidden shadow-lg">
-                <img
+                <Image
                   src={club.logo}
                   alt={club.name}
+                  width={48}
+                  height={48}
                   className="w-12 h-12 object-cover rounded-lg"
                 />
               </div>
@@ -246,7 +249,7 @@ const Clubs: React.FC = () => {
               Ready to Join?
             </h3>
             <p className="text-gray-400 mb-16 max-w-lg mx-auto text-xl leading-relaxed">
-              Become part of Chitkara's vibrant community and start your journey
+              Become part of Chitkara&apos;s vibrant community and start your journey
               today.
             </p>
             <motion.button

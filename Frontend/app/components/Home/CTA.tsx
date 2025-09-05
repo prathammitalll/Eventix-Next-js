@@ -2,11 +2,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import LightRays from "./LightRays";
-import { useAuth } from "../../contexts/AuthContext";
+
 import { useRouter } from "next/navigation";
 
 const CTA: React.FC = () => {
-  const { openAuthModal } = useAuth();
   const router = useRouter();
 
   return (

@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, MouseEvent } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useRouter } from "next/navigation";
 
 // Animation variants

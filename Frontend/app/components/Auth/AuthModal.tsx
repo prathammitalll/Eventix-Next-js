@@ -170,19 +170,6 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
         }, 2000);
     };
 
-    const switchMode = () => {
-        setMode(mode === 'login' ? 'signup' : 'login');
-        setErrors({});
-        setFormData({
-            email: '',
-            password: '',
-            confirmPassword: '',
-            firstName: '',
-            lastName: '',
-            agreeToTerms: false
-        });
-    };
-
     const modalVariants = {
         hidden: { 
             opacity: 0,

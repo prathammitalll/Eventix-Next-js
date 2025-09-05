@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useRouter, useSearchParams } from "next/navigation";
+
 import Navbar from "../components/Home/Navbar";
 import EventCard from "../components/Events/EventCard";
 import EventFilters from "../components/Events/EventFilters";
@@ -25,21 +25,13 @@ interface Event {
   status: 'upcoming' | 'past';
 }
 
-interface FilterOptions {
-  category: string;
-  sortBy: string;
-  status: string;
-  location: string;
-  club: string;
-}
-
-// Define Filters type (same as FilterOptions)
+// Define Filters type
 type Filters = {
   category: string;
   sortBy: string;
   status?: string;
-  location: string;
-  club: string;
+  location?: string;
+  club?: string;
 };
 
 const categories: string[] = [
@@ -75,7 +67,6 @@ const EventsPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [searchActive, setSearchActive] = useState<boolean>(false);
-  const router = useRouter();
 
   // Only apply filters when user clicks "Apply Filter"
   const applyFilters = (filters: Filters): void => {
@@ -207,7 +198,7 @@ const EventsPage: React.FC = () => {
               No Events Found
             </h3>
             <p className="text-gray-400 max-w-md mx-auto">
-              Try adjusting your filters to find the events you're looking for.
+              Try adjusting your filters to find the events you&apos;re looking for.
             </p>
           </motion.div>
         )}

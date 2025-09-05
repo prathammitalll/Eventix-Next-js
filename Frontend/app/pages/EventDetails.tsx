@@ -1,29 +1,21 @@
 "use client"
 import React from "react";
+import Image from "next/image";
 import { useRouter, useParams } from "next/navigation";
 import Navbar from "../components/Home/Navbar";
 import Footer from "../components/Home/Footer";
 import eventsData from "../data/eventsData";
 
-interface Event {
-  id: number;
-  title: string;
-  date: string;
-  time: string;
-  category: string;
-  location: string;
-  organizer: string;
-  price: string;
-  description: string;
-  attendees: number;
-  maxAttendees: number;
-  image: string;
-  tags: string[];
+
+
+interface EventDetailsProps {
+  eventId?: string;
 }
 
-const EventDetails: React.FC = () => {
-  const { id } = useParams();
+const EventDetails: React.FC<EventDetailsProps> = ({ eventId }) => {
+  const params = useParams();
   const router = useRouter();
+  const id = eventId || params?.id;
   const event = eventsData.find((e) => String(e.id) === String(id));
 
   if (!event) {
@@ -51,12 +43,13 @@ const EventDetails: React.FC = () => {
       <Navbar />
       {/* Elongated event image at the top */}
       <div className="w-full max-w-7xl mx-auto px-0 pt-8">
-        <div className="w-full h-56 md:h-72 lg:h-80 xl:h-[340px] rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex items-center justify-center bg-black">
-          <img
+        <div className="w-full h-56 md:h-72 lg:h-80 xl:h-[340px] rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex items-center justify-center bg-black relative">
+          <Image
             src={event.image}
             alt={event.title}
-            className="w-full h-full object-cover object-center"
-            style={{ maxHeight: "100%", maxWidth: "100%" }}
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
           />
         </div>
       </div>

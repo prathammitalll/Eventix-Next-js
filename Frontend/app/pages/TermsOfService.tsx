@@ -62,7 +62,7 @@ const TermsOfService: React.FC = () => {
                 <li>Maintain the security of your account credentials</li>
                 <li>Follow all applicable laws and regulations</li>
                 <li>Respect the rights of other users</li>
-                <li>Not misuse or abuse the platform's features</li>
+                <li>Not misuse or abuse the platform&apos;s features</li>
               </ul>
             </div>
           </section>

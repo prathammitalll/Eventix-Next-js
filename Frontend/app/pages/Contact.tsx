@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Have questions about campus events? Need support? Want to partner
-            with us? We'd love to hear from you.
+            with us? We&apos;d love to hear from you.
           </p>
         </motion.div>
 
@@ -199,7 +199,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 focus:ring-2 focus:ring-[#f2f862]/50 focus:border-[#f2f862]/50 transition-colors"
-                  placeholder="What's this about?"
+                  placeholder="What&apos;s this about?"
                 />
               </div>
 

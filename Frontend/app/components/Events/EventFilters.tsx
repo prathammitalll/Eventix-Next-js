@@ -71,6 +71,14 @@ const EventFilters: React.FC<EventFiltersProps> = ({
   ]);
 
   const handleApply = () => {
+    // Update parent state
+    setSelectedCategory(localCategory);
+    setSortBy(localSortBy);
+    if (setSelectedStatus && localStatus) setSelectedStatus(localStatus);
+    if (setSelectedLocation && localLocation) setSelectedLocation(localLocation);
+    if (setSelectedClub && localClub) setSelectedClub(localClub);
+
+    // Call onApply if provided
     if (onApply) {
       onApply({
         category: localCategory,

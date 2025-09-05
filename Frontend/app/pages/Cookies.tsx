@@ -45,8 +45,8 @@ const Cookies: React.FC = () => {
               </p>
               <p>
                 Cookies set by the website owner (in this case, Eventix 360) are
-                called "first party cookies". Cookies set by parties other than
-                the website owner are called "third party cookies".
+                called &quot;first party cookies&quot;. Cookies set by parties other than
+                the website owner are called &quot;third party cookies&quot;.
               </p>
             </div>
           </section>
@@ -136,7 +136,7 @@ const Cookies: React.FC = () => {
                   <strong>Theme cookies:</strong> Save your display preferences
                 </li>
                 <li>
-                  <strong>Event cookies:</strong> Remember events you've shown
+                  <strong>Event cookies:</strong> Remember events you&apos;ve shown
                   interest in
                 </li>
                 <li>
